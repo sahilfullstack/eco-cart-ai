@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "EcoCart AI",
+  "version": "1.0.0",
+  "description": "Transform your online shopping cart into a sustainable one with AI-powered environmental impact analysis",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": [
+    "*://*.amazon.com/*",
+    "*://*.flipkart.com/*",
+    "*://*.walmart.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.amazon.com/*",
+        "*://*.flipkart.com/*",
+        "*://*.walmart.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon48.png"
+  }
+}
